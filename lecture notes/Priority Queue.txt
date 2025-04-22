@@ -1,0 +1,15 @@
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+        pq.offer(30);
+        pq.offer(10);
+        pq.offer(20);
+
+        System.out.println("PriorityQueue: " + pq);
+        System.out.println("Polled: " + pq.poll()); // Smallest element
+        System.out.println("After poll: " + pq);
+    }
+}

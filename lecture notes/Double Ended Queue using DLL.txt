@@ -1,0 +1,70 @@
+class Node {
+    int data;
+    Node prev, next;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+
+class DequeDoublyLinkedList {
+    private Node front, rear;
+
+    public DequeDoublyLinkedList() {
+        front = rear = null;
+    }
+    public void addFront(int data) {
+        Node newNode = new Node(data);
+        if (front == null) {
+            front = rear = newNode;
+        } else {
+            newNode.next = front;
+            front.prev = newNode;
+            front = newNode;
+        }
+    }
+    public void addRear(int data) {
+        Node newNode = new Node(data);
+        if (rear == null) {
+            front = rear = newNode;
+        } else {
+            rear.next = newNode;
+            newNode.prev = rear;
+            rear = newNode;
+        }
+    }
+    public int removeFront() {
+        if (front == null) {
+            System.out.println("Deque is empty");
+            return -1;
+        }
+        int val = front.data;
+        front = front.next;
+        if (front != null)
+            front.prev = null;
+        else
+            rear = null; // if deque becomes empty
+        return val;
+    }
+    public int removeRear() {
+        if (rear == null) {
+            System.out.println("Deque is empty");
+            return -1;
+        }
+        int val = rear.data;
+        rear = rear.prev;
+        if (rear != null)
+            rear.next = null;
+        else
+            front = null;
+        return val;
+    }
+    public void display() {
+        Node temp = front;
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+}
