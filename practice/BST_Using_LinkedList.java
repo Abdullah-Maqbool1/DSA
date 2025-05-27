@@ -49,49 +49,35 @@ class BST {
         // Worst Case:    O(n)       -> Skewed tree (all nodes in one side)
     }
 
-    // Node delete karne ka method
-    public Node delete(Node root, int key) {
-        if (root == null) return null; // Agar tree empty hai
+    Node deleteNode(Node root, int key) {
+        if (root == null) return null;
 
         if (key < root.data) {
-            // Left subtree mein delete karo
-            root.left = delete(root.left, key);
+            root.left = deleteNode(root.left, key);
         } else if (key > root.data) {
-            // Right subtree mein delete karo
-            root.right = delete(root.right, key);
+            root.right = deleteNode(root.right, key);
         } else {
-            // Node found ho gaya
-
-            // Case 1: Agar left child null hai
+            // Node with only one child or no child
             if (root.left == null)
                 return root.right;
-
-                // Case 2: Agar right child null hai
             else if (root.right == null)
                 return root.left;
 
-            // Case 3: Dono children hain
-            // Right subtree se minimum value find karo
+            // Node with two children: get inorder successor (smallest in the right subtree)
             root.data = minValue(root.right);
 
-            // Minimum value wale node ko right subtree se delete karo
-            root.right = delete(root.right, root.data);
+            // Delete the inorder successor
+            root.right = deleteNode(root.right, root.data);
         }
-        return root; // Updated root return karo
 
-        // Time Complexity:
-        // Best Case:     O(log n)
-        // Average Case:  O(log n)
-        // Worst Case:    O(n)
-        // (In worst case, it may need to go to the bottom to find node and replace it)
+        return root;
     }
 
-    // Right subtree ka sabse chota value dhoondhne ka helper method
-    private int minValue(Node root) {
+    int minValue(Node root) {
         int min = root.data;
         while (root.left != null) {
+            min = root.left.data;
             root = root.left;
-            min = root.data;
         }
         return min;
     }
@@ -155,7 +141,7 @@ public class BST_Using_LinkedList {
         System.out.println("Search 100: " + bst.search(bst.root, 100));   // false
 
         // Deleting node 50
-        bst.root = bst.delete(bst.root, 50);
+        bst.root = bst.deleteNode(bst.root, 50);
         System.out.print("In-order after deleting 50: ");
         bst.inOrder(bst.root);
         System.out.println();
