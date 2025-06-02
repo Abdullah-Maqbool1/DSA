@@ -1,27 +1,77 @@
-# 📚 Data Structures and Algorithms (DSA)
-
-Welcome to my comprehensive **Data Structures and Algorithms** repository. This repo contains everything I studied and practiced throughout the course, including:
-
-- ✅ Assignments
-- 💻 Source Code (Java)
-- 📊 Lecture Slides
-- 🧠 Notes & Concepts
-- 📝 Time & Space Complexity Analysis
-
 
 ---
 
-## 📌 Topics Covered
+```markdown
+# 📊 Data Structures & Algorithms (DSA) – University Repo
 
-- Arrays & Strings
+![Language](https://img.shields.io/badge/Language-Java-blue?style=flat-square)
+![Semester](https://img.shields.io/badge/Semester-DSA-orange?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Active%20Learning-brightgreen?style=flat-square)
+![Level](https://img.shields.io/badge/Level-Intermediate-red?style=flat-square)
+
+This repository includes **Data Structures and Algorithms (DSA)** materials from my university coursework.  
+The goal is to build efficient problem-solving skills, master core data structures, and apply key algorithms in real-world scenarios.
+
+---
+
+## 🧠 Topics Covered
+
+### 🔹 Linear Data Structures
+- Arrays (1D, 2D, Dynamic)
 - Linked Lists (Singly, Doubly, Circular)
-- Stacks & Queues
-- Trees (BST, AVL, Heap)
-- Graphs (DFS, BFS, Dijkstra’s, etc.)
-- Searching & Sorting Algorithms
+- Stack (Array & LinkedList implementation)
+- Queue (Simple, Circular, Priority Queue)
+
+### 🔹 Non-Linear Data Structures
+- Trees (Binary Tree, BST)
+- Tree Traversals (InOrder, PreOrder, PostOrder, LevelOrder)
+- Heaps (Min-Heap, Max-Heap)
+- Graphs (Adjacency Matrix/List, Directed/Undirected)
+- Graph Traversals (DFS, BFS, Dijkstra's Algorithm)
+
+### 🔹 Algorithms
+- Searching (Linear, Binary)
+- Sorting (Bubble, Selection, Insertion, Merge, Quick)
+- Hashing (Linear Probing, Chaining)
 - Recursion & Backtracking
-- Hashing & Hash Tables
-- Time & Space Complexity
+- Dynamic Programming (Intro + basic problems)
+
+### 🔹 Applications
+- DSA-based Project: **Travel Route Planner using Graphs**
+- Problem-Solving on arrays, strings, sets, and maps
+- Time & Space Complexity Analysis
 
 ---
+
+## 🛠 Language Used
+
+- **Java**  
+> Optionally includes comparison examples in C++ or Python for some concepts.
+
+
+
+---
+
+## 📘 Helpful Resources
+
+* [GeeksForGeeks DSA](https://www.geeksforgeeks.org/data-structures/)
+* [Java DSA Roadmap](https://www.javatpoint.com/data-structure-tutorial)
+* [DSA Visualizations](https://visualgo.net/en)
+* [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
+
+---
+
+## 📈 What's Coming Next?
+
+* [ ] DSA problems with LeetCode-style solutions
+* [ ] Tree/Graph visualizer integration
+* [ ] Unit tests using JUnit
+* [ ] Time Complexity comparisons in comments
+
+---
+
+## 🤝 Contribution & Credit
+
+This repo is part of my personal learning journey and may help fellow students or beginners in DSA.
+Feel free to:
 
