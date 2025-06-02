@@ -1,7 +1,4 @@
 
----
-
-```markdown
 # 📊 Data Structures & Algorithms (DSA) – University Repo
 
 ![Language](https://img.shields.io/badge/Language-Java-blue?style=flat-square)
