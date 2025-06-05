@@ -58,15 +58,6 @@ The goal is to build efficient problem-solving skills, master core data structur
 
 ---
 
-## 📈 What's Coming Next?
-
-* [ ] DSA problems with LeetCode-style solutions
-* [ ] Tree/Graph visualizer integration
-* [ ] Unit tests using JUnit
-* [ ] Time Complexity comparisons in comments
-
----
-
 ## 🤝 Contribution & Credit
 
 This repo is part of my personal learning journey and may help fellow students or beginners in DSA.
