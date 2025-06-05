@@ -57,9 +57,5 @@ The goal is to build efficient problem-solving skills, master core data structur
 * [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
 
 ---
-
-## 🤝 Contribution & Credit
-
-This repo is part of my personal learning journey and may help fellow students or beginners in DSA.
-Feel free to:
+ 
 
