@@ -1,0 +1,163 @@
+public class BookCatalog {
+
+    class Node {
+        String title;
+        int height;
+        Node left, right;
+
+        Node(String title) {
+            this.title = title;
+            this.height = 1;
+        }
+    }
+
+    private Node root;
+
+    // Utility to get height of node
+    int height(Node N) {
+        return (N == null) ? 0 : N.height;
+    }
+
+    // Utility to get balance factor
+    int getBalance(Node N) {
+        return (N == null) ? 0 : height(N.left) - height(N.right);
+    }
+
+    // Right rotate
+    Node rightRotate(Node y) {
+        Node x = y.left;
+        Node T2 = x.right;
+
+        // Rotate
+        x.right = y;
+        y.left = T2;
+
+        // Update heights
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+
+        return x;
+    }
+
+    // Left rotate
+    Node leftRotate(Node x) {
+        Node y = x.right;
+        Node T2 = y.left;
+
+        // Rotate
+        y.left = x;
+        x.right = T2;
+
+        // Update heights
+        x.height = Math.max(height(x.left), height(x.right)) + 1;
+        y.height = Math.max(height(y.left), height(y.right)) + 1;
+
+        return y;
+    }
+
+    // Insert title into AVL Tree
+    public void insertBook(String title) {
+        root = insert(root, title);
+    }
+
+    private Node insert(Node node, String title) {
+        if (node == null) return new Node(title);
+
+        if (title.compareToIgnoreCase(node.title) < 0)
+            node.left = insert(node.left, title);
+        else if (title.compareToIgnoreCase(node.title) > 0)
+            node.right = insert(node.right, title);
+        else
+            return node; // Duplicate titles not allowed
+
+        // Update height
+        node.height = 1 + Math.max(height(node.left), height(node.right));
+
+        // Balance
+        int balance = getBalance(node);
+
+        // Left Left Case
+        if (balance > 1 && title.compareToIgnoreCase(node.left.title) < 0)
+            return rightRotate(node);
+
+        // Right Right Case
+        if (balance < -1 && title.compareToIgnoreCase(node.right.title) > 0)
+            return leftRotate(node);
+
+        // Left Right Case
+        if (balance > 1 && title.compareToIgnoreCase(node.left.title) > 0) {
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
+        }
+
+        // Right Left Case
+        if (balance < -1 && title.compareToIgnoreCase(node.right.title) < 0) {
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
+
+        return node;
+    }
+
+    // In-order traversal to display sorted book titles
+    public void displayCatalog() {
+        System.out.println("Books in alphabetical order:");
+        inOrder(root);
+        System.out.println();
+    }
+
+    private void inOrder(Node node) {
+        if (node != null) {
+            inOrder(node.left);
+            System.out.print(node.title + " | ");
+            inOrder(node.right);
+        }
+    }
+
+    // TODO: Implement this
+    public boolean findBook(String title) {
+        // Implement recursive search
+        return false;
+    }
+
+    // TODO: Implement this
+    public void deleteBook(String title) {
+        // Implement delete operation with balancing
+    }
+
+    // BONUS: Count total number of books
+    public int countBooks() {
+        return count(root);
+    }
+
+    private int count(Node node) {
+        return (node == null) ? 0 : 1 + count(node.left) + count(node.right);
+    }
+
+    // BONUS: Get height of AVL tree
+    public int getTreeHeight() {
+        return height(root);
+    }
+
+    // Main for testing
+    public static void main(String[] args) {
+        BookCatalog catalog = new BookCatalog();
+        
+        catalog.insertBook("War and Peace");
+        catalog.insertBook("1984");
+        catalog.insertBook("The Great Gatsby");
+        catalog.insertBook("Moby Duck");
+        catalog.insertBook("Pride and Prejudice");
+        catalog.insertBook("Ulysses");
+        catalog.insertBook("Hamlet");
+
+        catalog.displayCatalog();
+
+        // Sample placeholder (after implementation)
+        // System.out.println("Found '1984'? " + catalog.findBook("1984"));
+        // catalog.deleteBook("Moby Duck");
+        // catalog.displayCatalog();
+        // System.out.println("Total books: " + catalog.countBooks());
+        // System.out.println("Tree height: " + catalog.getTreeHeight());
+    }
+}
